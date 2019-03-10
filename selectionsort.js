@@ -1,4 +1,5 @@
-const numbers = Array.from({length: 20}, () => Math.floor(Math.random() * 10) * Math.floor(Math.random() * 10));
+const numberGenerator = require('./number-generator');
+const numbers = numberGenerator(1, 20);
 
 const sort = (numbers, minIndex = 0) => {
     const maxIndex = numbers.length - 1;
