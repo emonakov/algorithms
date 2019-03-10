@@ -1,5 +1,5 @@
 const numberGenerator = require('./number-generator');
-const numbers = numberGenerator(1, 20);
+const numbers = numberGenerator(1, 6666);
 
 const sort = (numbers, minIndex = 0) => {
     const maxIndex = numbers.length - 1;
@@ -18,8 +18,6 @@ const sort = (numbers, minIndex = 0) => {
     return sort(numbers, ++minIndex);
 };
 
-console.log(numbers);
-
+console.time('Time this');
 sort(numbers);
-
-console.log(numbers);
+console.timeEnd('Time this');

@@ -1,5 +1,5 @@
 const numberGenerator = require('./number-generator');
-const numbers = numberGenerator(1, 20);
+const numbers = numberGenerator(1, 6666);
 
 const sort = (numbers) => {
   if (numbers.length < 2) return numbers;
@@ -40,6 +40,6 @@ const merge = (left, right) => {
   return result;
 }
 
-console.log(numbers);
+console.time('Time this');
 const sortedNumbers = sort(numbers);
-console.log(sortedNumbers);
+console.timeEnd('Time this');
