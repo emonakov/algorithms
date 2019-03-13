@@ -1,5 +1,5 @@
 const numberGenerator = require('./number-generator');
-const numbers = numberGenerator(1, 6666);
+const numbers = numberGenerator(1, 100000);
 
 const sort = (numbers, minIndex = 0) => {
     const maxIndex = numbers.length - 1;
@@ -17,6 +17,21 @@ const sort = (numbers, minIndex = 0) => {
     return sort(numbers, ++minIndex);
 };
 
+const sortIterative = (numbers) => {
+  const len = numbers.length - 1;
+  for (let i = len; i >= 0; --i) {
+    for (let k = 0; k < i; k++) {
+      let rightNumber = numbers[i];
+      let leftNumber = numbers[k];
+      if (leftNumber > rightNumber) {
+        numbers[i] = leftNumber;
+        numbers[k] = rightNumber;
+      }
+    }
+  }
+  return numbers;
+}
+
 console.time('Time this');
-sort(numbers);
+sortIterative(numbers);
 console.timeEnd('Time this');
