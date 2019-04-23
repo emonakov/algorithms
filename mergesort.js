@@ -1,5 +1,6 @@
 const numberGenerator = require('./number-generator');
 const numbers = numberGenerator(1, 100000);
+console.log(JSON.stringify(numbers));
 
 const sort = (numbers) => {
   if (numbers.length < 2) return numbers;
