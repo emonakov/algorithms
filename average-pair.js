@@ -1,5 +1,4 @@
 function averagePair(nums, avg){
-  // add whatever parameters you deem necessary - good luck!
   if (!nums.length) {
     return false;
   }

@@ -1,5 +1,4 @@
 function maxSubarraySum(nums, count) {
-  // add whatever parameters you deem necessary - good luck!
   const numsLength = nums.length;
   if (numsLength < count) {
     return null;
