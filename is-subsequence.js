@@ -1,5 +1,4 @@
 function isSubsequence(substr, str) {
-  // good luck. Add any arguments you deem necessary.
   let first = 0;
   let firstChar = substr[first];
 
