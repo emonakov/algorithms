@@ -1,5 +1,5 @@
 const numberGenerator = require('./number-generator');
-const numbers = numberGenerator(1, 100000);
+const numbers = numberGenerator(1, 1000000);
 
 function merge (arr1, arr2) {
   let results = [];
