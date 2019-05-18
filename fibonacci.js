@@ -1,6 +1,31 @@
-function fib(n){
-  if (n <= 2) return 1;
-  return fib(n-1) + fib(n-2);
+const fibNumbers = [0, 1, 1];
+
+function fibIterative(n) {
+  if (fibNumbers[n]) {
+    return fibNumbers[n];
+  }
+
+  if (n <= 2) {
+    return 1;
+  }
+
+  for (var i = 3; i <= n; i++) {
+    fibNumbers[i] = fibNumbers[i - 1] + fibNumbers[i - 2];
+  }
+
+  return fibNumbers[n];
 }
 
-console.log(fib(10));
+function fibMemo(n, memo = {}) {
+  if (memo[n]) {
+    return memo[n];
+  }
+  if (n <= 2) {
+    return 1;
+  }
+
+  let res = fib(n - 1, memo) + fib(n - 2, memo);
+  memo[n] = res;
+
+  return res;
+}

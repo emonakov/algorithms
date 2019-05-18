@@ -46,15 +46,98 @@ class Graph {
 
     return this.adjacencyList;
   }
+
+  dfsRecursive(vertex) {
+    const result = [];
+    const visitedList = {};
+    if (!this.adjacencyList[vertex]) {
+      return null;
+    }
+
+    const dfs = vertex => {
+      if (!vertex) {
+        return null;
+      }
+
+      visitedList[vertex] = true;
+      result.push(vertex);
+
+      this.adjacencyList[vertex].forEach(neighbor => {
+        if (!visitedList[neighbor]) {
+          dfs(neighbor);
+        }
+      });
+    }
+
+    dfs(vertex);
+
+    return result;
+  }
+
+  dfsIterative(vertex) {
+    const S = [];
+    const result = [];
+    const visited = {};
+    if (!this.adjacencyList[vertex]) {
+      return null;
+    }
+    let currentVertex;
+    S.push(vertex);
+    visited[vertex] = true;
+    while (S.length) {
+      currentVertex = S.pop(vertex);
+      result.push(currentVertex);
+
+      this.adjacencyList[currentVertex].forEach(neighbor => {
+        if (!visited[neighbor]) {
+          visited[neighbor] = true;
+          S.push(neighbor);
+        }
+      });
+    }
+
+    return result;
+  }
+
+  bfs(vertex) {
+    const Q = [];
+    const result = [];
+    const visited = {};
+
+    if (!this.adjacencyList[vertex]) {
+      return null;
+    }
+
+    Q.push(vertex);
+    visited[vertex] = true;
+
+    while (Q.length) {
+      let vertex = Q.shift();
+      result.push(vertex);
+      this.adjacencyList[vertex].forEach(v => {
+        if (!visited[v]) {
+          visited[v] = true;
+          Q.push(v);
+        }
+      });
+    }
+
+    return result;
+  }
 }
 
-g = new Graph();
-g.addVertex("Tokyo");
-g.addVertex("San Francisco");
-g.addEdge("San Francisco", "Tokyo");
-g.addVertex("Berlin");
-g.addEdge("Tokyo", "Berlin");
-g.addEdge("San Francisco", "Berlin");
-g.addVertex("Dublin");
-g.addEdge("Dublin", "Berlin");
-g.addEdge("Dublin", "San Francisco");
+g = new Graph;
+g.addVertex('A');
+g.addVertex('B');
+g.addVertex('C');
+g.addVertex('D');
+g.addVertex('E');
+g.addVertex('F');
+
+g.addEdge('A', 'B');
+g.addEdge('A', 'C');
+g.addEdge('B', 'D');
+g.addEdge('C', 'E');
+g.addEdge('D', 'E');
+g.addEdge('D', 'F');
+g.addEdge('E', 'F');
