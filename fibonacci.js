@@ -24,8 +24,31 @@ function fibMemo(n, memo = {}) {
     return 1;
   }
 
-  let res = fib(n - 1, memo) + fib(n - 2, memo);
+  let res = fibMemo(n - 1, memo) + fibMemo(n - 2, memo);
   memo[n] = res;
 
   return res;
 }
+
+function fib(n) {
+  if (n <= 2) {
+      return 1;
+  }
+
+  let res1 = fib(n - 1);
+  let res2 = fib(n - 2);
+
+  return res1 + res2;
+}
+
+function someRecoursiveFunction(n) {
+  if (n <= 1) {
+      return 1;
+  }
+
+  const result = someRecoursiveFunction(--n);
+
+  return result;
+}
+
+someRecoursiveFunction(13981);

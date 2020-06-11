@@ -40,3 +40,11 @@ class Queue {
     return current.value;
   }
 }
+
+const node = new Node(Math.round(Math.random() * 10) + 1);
+const queue = new Queue();
+queue.enqueue(node);
+queue.enqueue(node);
+queue.enqueue(node);
+
+console.log(queue);
